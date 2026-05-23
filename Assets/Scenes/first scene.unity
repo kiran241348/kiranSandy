@@ -243,6 +243,7 @@ GameObject:
   - component: {fileID: 4885059}
   - component: {fileID: 4885058}
   - component: {fileID: 4885057}
+  - component: {fileID: 4885060}
   m_Layer: 0
   m_Name: vitra baira option 1
   m_TagString: Untagged
@@ -259,8 +260,8 @@ Transform:
   m_GameObject: {fileID: 4885055}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.1875286, y: 0.64603996, z: -3.80093}
-  m_LocalScale: {x: 1.5303, y: -0.122424, z: 1.5303}
+  m_LocalPosition: {x: -0.88, y: 0.64603996, z: -3.80093}
+  m_LocalScale: {x: 2, y: -0.122424, z: 1.5303}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2118827760}
@@ -343,6 +344,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4885055}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &4885060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4885055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b5d7426ff19e3b4e80075fae888b689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Vitra_Baira
+  speed: 0.7
+  leftLimit: -23.3
+  rightLimit: -21.1
 --- !u!1 &6436929
 GameObject:
   m_ObjectHideFlags: 0
@@ -767,7 +783,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: c8a95192fb02e03419f8f39aa33e5059, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1611,6 +1627,7 @@ GameObject:
   - component: {fileID: 26645472}
   - component: {fileID: 26645471}
   - component: {fileID: 26645470}
+  - component: {fileID: 26645473}
   m_Layer: 0
   m_Name: vitra baira option 1 (4)
   m_TagString: Untagged
@@ -1627,8 +1644,8 @@ Transform:
   m_GameObject: {fileID: 26645468}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.1875286, y: 0.64603996, z: 5.08}
-  m_LocalScale: {x: 1.5303, y: -0.122424, z: 1.5303}
+  m_LocalPosition: {x: -0.88, y: 0.64603996, z: 5.08}
+  m_LocalScale: {x: 2.2, y: -0.122424, z: 1.5303}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2118827760}
@@ -1711,6 +1728,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 26645468}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &26645473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 26645468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b5d7426ff19e3b4e80075fae888b689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Vitra_Baira
+  speed: 0.7
+  leftLimit: -23.3
+  rightLimit: -21.1
 --- !u!1 &34670185
 GameObject:
   m_ObjectHideFlags: 0
@@ -2497,6 +2529,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 53823482}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &58115883
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 58115884}
+  m_Layer: 0
+  m_Name: Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &58115884
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 58115883}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8.03444, y: -0, z: -2.08438}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &60624186
 GameObject:
   m_ObjectHideFlags: 0
@@ -3981,6 +4044,7 @@ GameObject:
   - component: {fileID: 83991762}
   - component: {fileID: 83991761}
   - component: {fileID: 83991760}
+  - component: {fileID: 83991763}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -4000,7 +4064,9 @@ Transform:
   m_LocalPosition: {x: -36.24, y: 1.36, z: -3.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 723754593}
+  - {fileID: 1647119437}
   m_Father: {fileID: 1110107699}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &83991760
@@ -4083,6 +4149,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 83991758}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &83991763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 83991758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3782f64b957b35f40945303b5952bca0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ghumne
+  rotationSpeed: 100
 --- !u!1 &84999105
 GameObject:
   m_ObjectHideFlags: 0
@@ -7255,6 +7334,7 @@ GameObject:
   - component: {fileID: 147441000}
   - component: {fileID: 147440999}
   - component: {fileID: 147440998}
+  - component: {fileID: 147441001}
   m_Layer: 0
   m_Name: vitra baira option 1 (1)
   m_TagString: Untagged
@@ -7271,8 +7351,8 @@ Transform:
   m_GameObject: {fileID: 147440996}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.1955299, y: 0.98304, z: -1.85893}
-  m_LocalScale: {x: 1.5303, y: -0.122424, z: 1.5303}
+  m_LocalPosition: {x: -2.4, y: 0.98304, z: -1.85893}
+  m_LocalScale: {x: 2, y: -0.122424, z: 1.5303}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2118827760}
@@ -7355,6 +7435,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 147440996}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &147441001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147440996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b5d7426ff19e3b4e80075fae888b689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Vitra_Baira
+  speed: 0.7
+  leftLimit: -23.3
+  rightLimit: -21.1
 --- !u!1 &149914441
 GameObject:
   m_ObjectHideFlags: 0
@@ -37856,11 +37951,11 @@ Transform:
   m_GameObject: {fileID: 723754592}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -36.151, y: 1.454, z: -0.493}
-  m_LocalScale: {x: 1, y: 0.6596099, z: 1}
+  m_LocalPosition: {x: 0.0890007, y: 0.09399998, z: 2.577}
+  m_LocalScale: {x: 1, y: 0.65960985, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1110107699}
+  m_Father: {fileID: 83991759}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!136 &723754594
 CapsuleCollider:
@@ -39573,6 +39668,7 @@ GameObject:
   - component: {fileID: 745161351}
   - component: {fileID: 745161350}
   - component: {fileID: 745161349}
+  - component: {fileID: 745161352}
   m_Layer: 0
   m_Name: vitra baira option 1 (3)
   m_TagString: Untagged
@@ -39589,8 +39685,8 @@ Transform:
   m_GameObject: {fileID: 745161347}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.1955299, y: 0.98304, z: 2.74}
-  m_LocalScale: {x: 1.5303, y: -0.122424, z: 1.5303}
+  m_LocalPosition: {x: -2.4, y: 0.98304, z: 2.74}
+  m_LocalScale: {x: 2.2, y: -0.122424, z: 1.5303}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2118827760}
@@ -39673,6 +39769,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 745161347}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &745161352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745161347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b5d7426ff19e3b4e80075fae888b689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Vitra_Baira
+  speed: 0.7
+  leftLimit: -23.3
+  rightLimit: -21.1
 --- !u!1 &747106731
 GameObject:
   m_ObjectHideFlags: 0
@@ -40897,7 +41008,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 7f686a7ae974c3b488d9fb9a5ed0a0f1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -41501,6 +41612,7 @@ GameObject:
   - component: {fileID: 780071166}
   - component: {fileID: 780071165}
   - component: {fileID: 780071164}
+  - component: {fileID: 780071167}
   m_Layer: 0
   m_Name: agadi paxadi
   m_TagString: Untagged
@@ -41601,6 +41713,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 780071162}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &780071167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 780071162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6546a03c4aca7cf468d2f8065a8e9fba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::left_ritht
+  speed: 2.1
+  leftLimit: -4.6
+  rightLimit: -1
 --- !u!1 &780353851
 GameObject:
   m_ObjectHideFlags: 0
@@ -56182,6 +56309,7 @@ GameObject:
   - component: {fileID: 1062735979}
   - component: {fileID: 1062735978}
   - component: {fileID: 1062735977}
+  - component: {fileID: 1062735981}
   m_Layer: 0
   m_Name: aagadi paxadi (1)
   m_TagString: Untagged
@@ -56198,7 +56326,7 @@ Transform:
   m_GameObject: {fileID: 1062735975}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -5.79, y: 0.63, z: -0.68}
+  m_LocalPosition: {x: -5.79, y: 0.63, z: 1.25}
   m_LocalScale: {x: 1.5303, y: -0.12242, z: 1.5302999}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -56282,6 +56410,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1062735975}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1062735981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062735975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6546a03c4aca7cf468d2f8065a8e9fba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::left_ritht
+  speed: 4.1
+  leftLimit: 1.3
+  rightLimit: 7.33
 --- !u!1 &1067194768
 GameObject:
   m_ObjectHideFlags: 0
@@ -59264,8 +59407,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 83991759}
-  - {fileID: 723754593}
-  - {fileID: 1647119437}
   m_Father: {fileID: 1440453041}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1112188599
@@ -65640,11 +65781,11 @@ Transform:
   m_GameObject: {fileID: 1215286615}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: -36.119, y: 1.51, z: -1.73}
+  m_LocalPosition: {x: 0.1210022, y: 0.14999998, z: 1.3399999}
   m_LocalScale: {x: 0.32825, y: 1.151304, z: 0.32825}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1676213744}
+  m_Father: {fileID: 1994821240}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
 --- !u!136 &1215286617
 CapsuleCollider:
@@ -73083,6 +73224,7 @@ GameObject:
   - component: {fileID: 1362576938}
   - component: {fileID: 1362576937}
   - component: {fileID: 1362576936}
+  - component: {fileID: 1362576939}
   m_Layer: 0
   m_Name: aagadi paxadi
   m_TagString: Untagged
@@ -73183,6 +73325,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1362576934}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1362576939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362576934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b5d7426ff19e3b4e80075fae888b689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Vitra_Baira
+  speed: 1.6
+  leftLimit: -26.4
+  rightLimit: -24
 --- !u!1 &1363809015
 GameObject:
   m_ObjectHideFlags: 0
@@ -75527,7 +75684,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: c8a95192fb02e03419f8f39aa33e5059, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -90187,11 +90344,11 @@ Transform:
   m_GameObject: {fileID: 1647119436}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: -36.119, y: 1.51, z: -1.73}
+  m_LocalPosition: {x: 0.1210022, y: 0.14999998, z: 1.3399999}
   m_LocalScale: {x: 0.32825, y: 1.151304, z: 0.32825}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1110107699}
+  m_Father: {fileID: 83991759}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 90}
 --- !u!136 &1647119438
 CapsuleCollider:
@@ -91767,8 +91924,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1994821240}
-  - {fileID: 2139654821}
-  - {fileID: 1215286616}
   m_Father: {fileID: 1440453041}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1676786162
@@ -101393,6 +101548,7 @@ GameObject:
   - component: {fileID: 1849555977}
   - component: {fileID: 1849555976}
   - component: {fileID: 1849555975}
+  - component: {fileID: 1849555978}
   m_Layer: 0
   m_Name: vitra baira option 1 (2)
   m_TagString: Untagged
@@ -101409,8 +101565,8 @@ Transform:
   m_GameObject: {fileID: 1849555973}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.1955299, y: 1.21304, z: 0.466}
-  m_LocalScale: {x: 1.5303, y: -0.122424, z: 1.5303}
+  m_LocalPosition: {x: -2.77, y: 1.21304, z: 0.466}
+  m_LocalScale: {x: 2.2, y: -0.122424, z: 1.5303}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2118827760}
@@ -101493,6 +101649,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1849555973}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1849555978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1849555973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b5d7426ff19e3b4e80075fae888b689, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Vitra_Baira
+  speed: 0.7
+  leftLimit: -23.3
+  rightLimit: -21.1
 --- !u!1 &1850602843
 GameObject:
   m_ObjectHideFlags: 0
@@ -109431,6 +109602,7 @@ GameObject:
   - component: {fileID: 1994821243}
   - component: {fileID: 1994821242}
   - component: {fileID: 1994821241}
+  - component: {fileID: 1994821244}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -109450,7 +109622,9 @@ Transform:
   m_LocalPosition: {x: -36.24, y: 1.36, z: -3.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2139654821}
+  - {fileID: 1215286616}
   m_Father: {fileID: 1676213744}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &1994821241
@@ -109533,6 +109707,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1994821239}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1994821244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994821239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3782f64b957b35f40945303b5952bca0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Ghumne
+  rotationSpeed: 100
 --- !u!1 &2004700189
 GameObject:
   m_ObjectHideFlags: 0
@@ -110793,6 +110980,7 @@ GameObject:
   - component: {fileID: 2015407385}
   - component: {fileID: 2015407384}
   - component: {fileID: 2015407383}
+  - component: {fileID: 2015407387}
   m_Layer: 0
   m_Name: agdi paxadi
   m_TagString: Untagged
@@ -110809,7 +110997,7 @@ Transform:
   m_GameObject: {fileID: 2015407381}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 4.0820103, y: 1.7746601, z: 3.6981401}
+  m_LocalPosition: {x: 4.739, y: 1.7746601, z: 3.6981401}
   m_LocalScale: {x: 1.5303, y: -0.12242, z: 1.5302999}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -110893,6 +111081,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2015407381}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2015407387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015407381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6546a03c4aca7cf468d2f8065a8e9fba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::left_ritht
+  speed: 2.1
+  leftLimit: 3.5
+  rightLimit: 7.2
 --- !u!1 &2017166266
 GameObject:
   m_ObjectHideFlags: 0
@@ -117207,11 +117410,11 @@ Transform:
   m_GameObject: {fileID: 2139654820}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -36.151, y: 1.454, z: -0.493}
-  m_LocalScale: {x: 1, y: 0.6596099, z: 1}
+  m_LocalPosition: {x: 0.0890007, y: 0.09399998, z: 2.577}
+  m_LocalScale: {x: 1, y: 0.65960985, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1676213744}
+  m_Father: {fileID: 1994821240}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!136 &2139654822
 CapsuleCollider:
@@ -117886,3 +118089,4 @@ SceneRoots:
   - {fileID: 832575519}
   - {fileID: 971447399}
   - {fileID: 1258726734}
+  - {fileID: 58115884}
