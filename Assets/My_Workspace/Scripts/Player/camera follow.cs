@@ -6,6 +6,8 @@ public class CameraFollow : MonoBehaviour
 
     public float mouseSensitivity = 200f;
 
+    public Vector3 offset = new Vector3(0f, 2f, -4f);
+
     float xRotation = 0f;
 
     void Update()
@@ -16,13 +18,13 @@ public class CameraFollow : MonoBehaviour
         // Rotate player left/right
         player.Rotate(Vector3.up * mouseX);
 
-        // Camera up/down
+        // Camera vertical rotation
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -30f, 60f);
 
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
-        // Follow player position
-        transform.position = player.position;
+        // Follow player with offset
+        transform.position = player.position + player.TransformDirection(offset);
     }
 }

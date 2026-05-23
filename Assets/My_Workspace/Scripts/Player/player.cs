@@ -37,15 +37,13 @@ public class PlayerMovement : MonoBehaviour
         forward.Normalize();
         right.Normalize();
 
-        // Final movement
+        // Movement direction
         Vector3 move = forward * z + right * x;
 
-        controller.Move(move * speed * Time.deltaTime);
-
-        // Rotate player
-        if (move != Vector3.zero)
+        // Move player
+        if (move.magnitude >= 0.1f)
         {
-            transform.forward = move;
+            controller.Move(move.normalized * speed * Time.deltaTime);
         }
 
         // Jump
