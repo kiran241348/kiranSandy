@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 87aa41fd84c3f1446a76ad89fe3352b7
+guid: de72d7e46736abf4ba9b6e27a3c82e11
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material
-    second: {fileID: 2100000, guid: 3c391652005c34640a8c38567f672182, type: 2}
+      name: Blue marble
+    second: {fileID: 2100000, guid: baf36e3370d18fe49b83af261125cbe0, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
