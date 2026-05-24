@@ -3,28 +3,39 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     public Transform player;
+    public float mouseSensitivity = 100f;
+    public float distance = 5f;
+    public float height = 2f;
 
-    public float mouseSensitivity = 200f;
+    private float currentYaw = 0f;      // Horizontal rotation
+    private float currentPitch = 0f;    // Vertical rotation
 
-    public Vector3 offset = new Vector3(0f, 2f, -4f);
-
-    float xRotation = 0f;
-
-    void Update()
+    void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    void LateUpdate()
+    {
+        // Mouse input for both horizontal and vertical rotation
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
-        // Rotate player left/right
-        player.Rotate(Vector3.up * mouseX);
+        currentYaw += mouseX;
+        currentPitch -= mouseY;
+        currentPitch = Mathf.Clamp(currentPitch, -30f, 80f);
 
-        // Camera vertical rotation
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -30f, 60f);
+        // Calculate camera rotation
+        Quaternion rotation = Quaternion.Euler(currentPitch, currentYaw, 0);
 
-        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        // Camera position
+        Vector3 targetPosition = player.position
+            - rotation * Vector3.forward * distance
+            + Vector3.up * height;
 
-        // Follow player with offset
-        transform.position = player.position + player.TransformDirection(offset);
+        transform.position = targetPosition;
+
+        // Look at player
+        transform.LookAt(player.position + Vector3.up * height);
     }
 }
