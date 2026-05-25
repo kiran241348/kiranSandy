@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 velocity;
     private bool isGrounded;
-    private bool isJumping;
+    private bool hasJumped; // Tracks if player has jumped and hasn't landed yet
 
     void Start()
     {
@@ -30,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
             cameraTransform = Camera.main.transform;
 
         Cursor.lockState = CursorLockMode.Locked;
+        hasJumped = false; // Start on ground, hasn't jumped
     }
 
     void Update()
@@ -37,16 +38,18 @@ public class PlayerMovement : MonoBehaviour
         // ---------------- BUILT-IN GROUND CHECK ----------------
         isGrounded = controller.isGrounded;
 
-        // Reset downward velocity when grounded
-        if (isGrounded && velocity.y < 0)
+        // Reset jump flag when touching ground
+        if (isGrounded && velocity.y <= 0)
         {
-            velocity.y = -1f;
-
-            if (isJumping)
+            if (hasJumped)
             {
-                isJumping = false;
+                hasJumped = false; // Allow jumping again
                 animator.SetBool("IsJumping", false);
             }
+
+            // Reset velocity when grounded
+            if (velocity.y < 0)
+                velocity.y = -1f;
         }
 
         // ---------------- INPUT ----------------
@@ -80,19 +83,16 @@ public class PlayerMovement : MonoBehaviour
             );
         }
 
-        // ---------------- JUMP ----------------
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        // ---------------- JUMP (CAN ONLY JUMP IF HASN'T JUMPED YET) ----------------
+        if (Input.GetButtonDown("Jump") && isGrounded && !hasJumped)
         {
-            isJumping = true;
-
+            hasJumped = true; // Lock jump until landing
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
-
             animator.SetBool("IsJumping", true);
         }
 
         // ---------------- APPLY GRAVITY ----------------
         velocity.y += gravity * Time.deltaTime;
-
         controller.Move(velocity * Time.deltaTime);
 
         // ---------------- ANIMATIONS ----------------
