@@ -14,11 +14,6 @@ public class PlayerMovement : MonoBehaviour
     public float gravity = -9.81f;
     public float jumpHeight = 2f;
 
-    [Header("Ground Check")]
-    public Transform groundCheck;
-    public float groundDistance = 0.3f;
-    public LayerMask groundMask;
-
     private Vector3 velocity;
     private bool isGrounded;
     private bool isJumping;
@@ -39,12 +34,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        // ---------------- GROUND CHECK ----------------
-        isGrounded = Physics.CheckSphere(
-            groundCheck.position,
-            groundDistance,
-            groundMask
-        );
+        // ---------------- BUILT-IN GROUND CHECK ----------------
+        isGrounded = controller.isGrounded;
 
         // Reset downward velocity when grounded
         if (isGrounded && velocity.y < 0)
@@ -75,7 +66,6 @@ public class PlayerMovement : MonoBehaviour
         Vector3 moveDirection = (forward * z + right * x).normalized;
 
         // ---------------- MOVE PLAYER ----------------
-        // Player can move even while jumping
         if (moveDirection.magnitude >= 0.1f)
         {
             controller.Move(moveDirection * runSpeed * Time.deltaTime);
@@ -113,20 +103,7 @@ public class PlayerMovement : MonoBehaviour
     {
         bool isMoving = Mathf.Abs(x) > 0.1f || Mathf.Abs(z) > 0.1f;
 
-        animator.SetBool("IsRunning", isMoving && isGrounded);
+        animator.SetBool("IsRunning", isMoving);
         animator.SetBool("IsGrounded", isGrounded);
-    }
-
-    // ---------------- GIZMOS ----------------
-    void OnDrawGizmosSelected()
-    {
-        if (groundCheck != null)
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(
-                groundCheck.position,
-                groundDistance
-            );
-        }
     }
 }
