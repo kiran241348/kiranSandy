@@ -47482,6 +47482,7 @@ MonoBehaviour:
   cameraTransform: {fileID: 330585546}
   animator: {fileID: 1188878285}
   runSpeed: 4
+  rotationSpeed: 10
   gravity: -9.81
   jumpHeight: 1
   groundCheck: {fileID: 1202723778}

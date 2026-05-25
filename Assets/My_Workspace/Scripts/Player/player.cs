@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Movement")]
     public float runSpeed = 8f;
+    public float rotationSpeed = 10f;
 
     [Header("Jump & Gravity")]
     public float gravity = -9.81f;
@@ -20,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 velocity;
     private bool isGrounded;
-    private bool isJumping = false;
+    private bool isJumping;
 
     void Start()
     {
@@ -30,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
         if (animator == null)
             animator = GetComponent<Animator>();
 
-        if (cameraTransform == null)
+        if (cameraTransform == null && Camera.main != null)
             cameraTransform = Camera.main.transform;
 
         Cursor.lockState = CursorLockMode.Locked;
@@ -38,12 +39,18 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        // GROUND CHECK
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        // ---------------- GROUND CHECK ----------------
+        isGrounded = Physics.CheckSphere(
+            groundCheck.position,
+            groundDistance,
+            groundMask
+        );
 
+        // Reset downward velocity when grounded
         if (isGrounded && velocity.y < 0)
         {
-            velocity.y = -2f;
+            velocity.y = -1f;
+
             if (isJumping)
             {
                 isJumping = false;
@@ -51,68 +58,75 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        // GET INPUT
+        // ---------------- INPUT ----------------
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
-        // MOVEMENT DIRECTION (Camera Relative)
+        // ---------------- CAMERA RELATIVE MOVEMENT ----------------
         Vector3 forward = cameraTransform.forward;
         Vector3 right = cameraTransform.right;
 
         forward.y = 0f;
         right.y = 0f;
+
         forward.Normalize();
         right.Normalize();
 
         Vector3 moveDirection = (forward * z + right * x).normalized;
 
-        // MOVE PLAYER (without auto-rotation)
-        if (moveDirection.magnitude >= 0.1f && !isJumping)
+        // ---------------- MOVE PLAYER ----------------
+        // Player can move even while jumping
+        if (moveDirection.magnitude >= 0.1f)
         {
             controller.Move(moveDirection * runSpeed * Time.deltaTime);
 
-            // ONLY rotate if you want character to face movement direction
-            // Comment this out if you don't want auto-rotation
-            if (moveDirection != Vector3.zero)
-            {
-                Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10f);
-            }
+            // Rotate toward movement direction
+            Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
+
+            transform.rotation = Quaternion.Slerp(
+                transform.rotation,
+                targetRotation,
+                rotationSpeed * Time.deltaTime
+            );
         }
 
-        // JUMP
-        if (Input.GetButtonDown("Jump") && isGrounded && !isJumping)
+        // ---------------- JUMP ----------------
+        if (Input.GetButtonDown("Jump") && isGrounded)
         {
             isJumping = true;
+
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+
             animator.SetBool("IsJumping", true);
         }
 
-        // APPLY GRAVITY
+        // ---------------- APPLY GRAVITY ----------------
         velocity.y += gravity * Time.deltaTime;
+
         controller.Move(velocity * Time.deltaTime);
 
-        // UPDATE ANIMATOR
-        UpdateAnimator();
+        // ---------------- ANIMATIONS ----------------
+        UpdateAnimator(x, z);
     }
 
-    void UpdateAnimator()
+    void UpdateAnimator(float x, float z)
     {
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
-        bool isMoving = (Mathf.Abs(x) > 0.1f || Mathf.Abs(z) > 0.1f);
+        bool isMoving = Mathf.Abs(x) > 0.1f || Mathf.Abs(z) > 0.1f;
 
-        bool isRunning = isMoving && isGrounded && !isJumping;
-        animator.SetBool("IsRunning", isRunning);
+        animator.SetBool("IsRunning", isMoving && isGrounded);
         animator.SetBool("IsGrounded", isGrounded);
     }
 
+    // ---------------- GIZMOS ----------------
     void OnDrawGizmosSelected()
     {
         if (groundCheck != null)
         {
             Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(groundCheck.position, groundDistance);
+            Gizmos.DrawWireSphere(
+                groundCheck.position,
+                groundDistance
+            );
         }
     }
 }
