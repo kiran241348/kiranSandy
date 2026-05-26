@@ -39,3 +39,9 @@ public class CameraFollow : MonoBehaviour
         transform.LookAt(player.position + Vector3.up * height);
     }
 }
+
+
+
+
+
+
