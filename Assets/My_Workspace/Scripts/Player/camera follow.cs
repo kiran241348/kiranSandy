@@ -7,8 +7,8 @@ public class CameraFollow : MonoBehaviour
     public float distance = 5f;
     public float height = 2f;
 
-    private float currentYaw = 0f;      // Horizontal rotation
-    private float currentPitch = 0f;    // Vertical rotation
+    private float currentYaw = 0f;
+    private float currentPitch = 0f;
 
     void Start()
     {
@@ -17,7 +17,9 @@ public class CameraFollow : MonoBehaviour
 
     void LateUpdate()
     {
-        // Mouse input for both horizontal and vertical rotation
+        if (player == null) return;
+
+        // Mouse input for rotation
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
@@ -28,14 +30,12 @@ public class CameraFollow : MonoBehaviour
         // Calculate camera rotation
         Quaternion rotation = Quaternion.Euler(currentPitch, currentYaw, 0);
 
-        // Camera position
+        // Camera position - NO JUMP EFFECT, fixed height
         Vector3 targetPosition = player.position
             - rotation * Vector3.forward * distance
             + Vector3.up * height;
 
         transform.position = targetPosition;
-
-        // Look at player
         transform.LookAt(player.position + Vector3.up * height);
     }
 }
