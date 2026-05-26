@@ -32,7 +32,7 @@ public class KickSystem : MonoBehaviour
                 Vector3.up * upwardForce;
 
             // Apply knockback
-            player.AddForce(finalForce);
+            //player.AddForce(finalForce);
 
             // Start cooldown
             StartCoroutine(KickCooldown());
